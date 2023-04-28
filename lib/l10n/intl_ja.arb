@@ -1,9 +1,9 @@
 {
-  "home_tab_top_anime": "講義を録音する",
+  "home_tab_top_anime": "トップアニメ",
   "@home_tab_top_anime": {
     "description": ""
   },
-  "home_tab_profile": "ヘルプ/チャット",
+  "home_tab_profile": "プロフィール",
   "@home_tab_profile": {
     "description": ""
   }

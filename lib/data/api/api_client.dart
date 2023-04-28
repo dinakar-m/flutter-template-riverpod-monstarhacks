@@ -18,5 +18,3 @@ abstract class ApiClient {
     @Query('limit') required int limit,
   });
 }
-
-
