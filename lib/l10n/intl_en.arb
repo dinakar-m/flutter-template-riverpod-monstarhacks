@@ -7,6 +7,10 @@
   "@home_tab_live_session": {
     "description": ""
   },
+  "home_tab_video_list": "Video List",
+  "@home_tab_video_list": {
+    "description": ""
+  },
   "home_tab_profile": "Help/Chat",
   "@home_tab_profile": {
     "description": ""
