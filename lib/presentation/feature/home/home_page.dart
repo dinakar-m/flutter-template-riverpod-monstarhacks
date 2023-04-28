@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_template_riverpod/presentation/feature/chat/chat_page.dart';
 
 import '../../../constants/resources/colors.dart';
 import '../../common_widgets/base/base_page.dart';
+import '../chat/chat_page.dart';
 import '../live_session/live_session_page.dart';
 import '../record_lecture/record_lecture_page.dart';
-import '../profile/profile_page.dart';
+import '../video_list/video_list.dart';
 import 'widgets/home_app_bar.dart';
 
 class HomePage extends BasePage {
@@ -20,9 +20,10 @@ class _HomePageState extends BasePageState<HomePage>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
   final List _screens = [
+    const VideoList(),
     const RecordLecturePage(),
     const LiveSessionPage(),
-    const ChatPage()
+    const ChatPage(),
   ];
 
   void _updateIndex(int value) {
@@ -50,16 +51,20 @@ class _HomePageState extends BasePageState<HomePage>
         iconSize: 30,
         items: [
           BottomNavigationBarItem(
+            label: AppLocalizations.of(context)!.home_tab_video_list,
+            icon: const Icon(Icons.newspaper),
+          ),
+          BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.home_tab_top_anime,
             icon: const Icon(Icons.newspaper),
           ),
           BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.home_tab_live_session,
-            icon: const Icon(Icons.newspaper),
+            icon: const Icon(Icons.person),
           ),
           BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.home_tab_profile,
-            icon: const Icon(Icons.person),
+            icon: const Icon(Icons.list),
           ),
         ],
       ),
