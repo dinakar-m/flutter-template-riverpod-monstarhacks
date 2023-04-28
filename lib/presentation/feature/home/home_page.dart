@@ -30,6 +30,8 @@ class _HomePageState extends BasePageState<HomePage>
     return const HomeAppBar();
   }
 
+
+
   @override
   Widget buildBody(BuildContext context) {
     return Scaffold(
