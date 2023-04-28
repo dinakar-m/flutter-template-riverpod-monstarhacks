@@ -33,6 +33,13 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
     initAgora();
   }
 
+  @override
+  void dispose() {
+    _engine.leaveChannel();
+    debugPrint('Left channel');
+    super.dispose();
+  }
+
   Future<void> initAgora() async {
     // retrieve permissions
     await [Permission.microphone, Permission.camera].request();
