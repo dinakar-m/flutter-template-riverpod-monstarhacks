@@ -44,7 +44,7 @@ class DetailAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return const Text('Flutter Template');
+    return const Text('Asha Health Explorer');
   }
 
   List<Widget>? buildActions(BuildContext context) {
