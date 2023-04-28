@@ -4,6 +4,7 @@ import 'package:flutter_template_riverpod/presentation/feature/chat/chat_page.da
 
 import '../../../constants/resources/colors.dart';
 import '../../common_widgets/base/base_page.dart';
+import '../live_session/live_session_page.dart';
 import '../record_lecture/record_lecture_page.dart';
 import '../profile/profile_page.dart';
 import 'widgets/home_app_bar.dart';
@@ -18,7 +19,11 @@ class HomePage extends BasePage {
 class _HomePageState extends BasePageState<HomePage>
     with WidgetsBindingObserver {
   int _currentIndex = 0;
-  final List _screens = [const RecordLecturePage(), const ChatPage()];
+  final List _screens = [
+    const RecordLecturePage(),
+    const LiveSessionPage(),
+    const ChatPage()
+  ];
 
   void _updateIndex(int value) {
     setState(() {
@@ -46,6 +51,10 @@ class _HomePageState extends BasePageState<HomePage>
         items: [
           BottomNavigationBarItem(
             label: AppLocalizations.of(context)!.home_tab_top_anime,
+            icon: const Icon(Icons.newspaper),
+          ),
+          BottomNavigationBarItem(
+            label: AppLocalizations.of(context)!.home_tab_live_session,
             icon: const Icon(Icons.newspaper),
           ),
           BottomNavigationBarItem(

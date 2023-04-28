@@ -3,6 +3,10 @@
   "@home_tab_top_anime": {
     "description": ""
   },
+  "home_tab_live_session": "Live Session",
+  "@home_tab_live_session": {
+    "description": ""
+  },
   "home_tab_profile": "Help/Chat",
   "@home_tab_profile": {
     "description": ""
