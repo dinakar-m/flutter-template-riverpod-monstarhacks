@@ -29,6 +29,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
 
   @override
   void initState() {
+    debugPrint('LiveSessionPage initState....');
     super.initState();
     initAgora();
   }
@@ -36,7 +37,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
   @override
   void dispose() {
     _engine.leaveChannel();
-    debugPrint('Left channel');
+    debugPrint('LiveSessionPage leave channel from dispose');
     super.dispose();
   }
 
@@ -54,27 +55,28 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
     _engine.registerEventHandler(
       RtcEngineEventHandler(
         onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
-          debugPrint("local user ${connection.localUid} joined");
+          debugPrint(
+              "LiveSessionPage local user ${connection.localUid} joined");
           setState(() {
             _localUserJoined = true;
           });
         },
         onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
-          debugPrint("remote user $remoteUid joined");
+          debugPrint("LiveSessionPage remote user $remoteUid joined");
           setState(() {
             _remoteUid = remoteUid;
           });
         },
         onUserOffline: (RtcConnection connection, int remoteUid,
             UserOfflineReasonType reason) {
-          debugPrint("remote user $remoteUid left channel");
+          debugPrint("LiveSessionPage remote user $remoteUid left channel");
           setState(() {
             _remoteUid = null;
           });
         },
         onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
           debugPrint(
-              '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+              'LiveSessionPage [onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
         },
       ),
     );
