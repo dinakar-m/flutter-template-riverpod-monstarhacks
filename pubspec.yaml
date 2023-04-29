@@ -38,7 +38,9 @@ dependencies:
   video_player: ^2.6.1
   http:
   agora_rtc_engine: ^6.1.1
-  permission_handler: ^10.2.0
+  permission_handler:
+  path_provider:
+
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +56,7 @@ dev_dependencies:
   # Generate providers for Riverpod
   intl: ^0.17.0 
   riverpod_generator: ^1.0.6
+  flutter_file_manager:
   mockito: ^5.3.2
 
 flutter:
