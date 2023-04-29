@@ -54,7 +54,10 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
             },
           ),
         },
-        child: const Text('Logout'),
+        child: const Text(
+          'Logout',
+          style: TextStyle(fontSize: 18, color: Colors.white),
+        ),
       ),
     ];
   }
