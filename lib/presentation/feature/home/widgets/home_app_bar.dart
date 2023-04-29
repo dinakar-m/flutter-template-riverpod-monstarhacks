@@ -50,7 +50,7 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
         onPressed: () => {
           UserManager.logout().then(
             (value) => {
-              context.pushNamed(RouteNames.loginScreen),
+              doLogout(context),
             },
           ),
         },
@@ -61,4 +61,14 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  void doLogout(BuildContext context) {
+    try {
+      Navigator.of(context)
+          .popUntil(ModalRoute.withName(RouteNames.homeScreen));
+    } catch (e) {
+      // TODO: handle exception, for example by showing an alert to the user
+    }
+    context.pushNamed(RouteNames.loginScreen);
+  }
 }

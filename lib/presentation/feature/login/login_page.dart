@@ -123,12 +123,12 @@ class _LoginPageState extends State<LoginPage> {
       // Save the email to shared preferences
       await prefs!.setString('email', _emailController.text);
       debugPrint('go to home screen');
+      Navigator.of(context).pop();
       context.pushNamed(RouteNames.homeScreen);
       // Navigator.push(
       //         context,
       //         MaterialPageRoute(builder: (context) => HomePage()),
       //       );
-      // Navigator.of(context).pop();
     } else {
       setState(() {
         _isLoading = false;
