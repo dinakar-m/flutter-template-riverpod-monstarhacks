@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../constants/routes.dart';
+import '../../../common/user_manager.dart';
 import '../../../common_widgets/space_box.dart';
 
 const double leadingWidth = 100;
@@ -42,7 +45,18 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   List<Widget>? buildActions(BuildContext context) {
-    return const <Widget>[SpaceBox()];
+    return <Widget>[
+      TextButton(
+        onPressed: () => {
+          UserManager.logout().then(
+            (value) => {
+              context.pushNamed(RouteNames.loginScreen),
+            },
+          ),
+        },
+        child: const Text('Logout'),
+      ),
+    ];
   }
 
   @override
