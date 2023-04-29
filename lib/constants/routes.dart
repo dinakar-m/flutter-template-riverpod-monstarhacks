@@ -10,6 +10,8 @@ class RouteNames {
   RouteNames._private();
 
   static const animeDetail = 'anime_detail';
+  static const homeScreen = 'home';
+  static const loginScreen = 'login';
 }
 
 class RouteParams {
