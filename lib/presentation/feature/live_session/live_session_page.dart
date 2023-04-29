@@ -93,12 +93,27 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
     );
   }
 
+  Widget _buildAppBar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Text('Live Session'),
+        TextButton(
+          onPressed: () {
+            debugPrint('Sync......');
+          },
+          child: const Text('Recording...'),
+        ),
+      ],
+    );
+  }
+
   // Create UI with local view and remote view
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Asha Live Practical Session'),
+        title: _buildAppBar(),
       ),
       body: Stack(
         children: [
