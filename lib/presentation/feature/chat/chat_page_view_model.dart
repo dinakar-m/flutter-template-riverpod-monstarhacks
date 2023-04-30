@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_template_riverpod/presentation/feature/chat/chat_page_state.dart';
 
 import '../../../data/repository/chat_repository/chat_repository.dart';
-
 
 class ChatPageViewModel extends StateNotifier<ChatPageState> {
   ChatPageViewModel({required this.chatRepository}) : super(ChatPageState());
@@ -15,12 +15,15 @@ class ChatPageViewModel extends StateNotifier<ChatPageState> {
         loading: true, messages: List.from(state.messages)..add(userQuestion));
 
     final response = await chatRepository.makeRequest(question: question);
+    debugPrint('Api response  ${response?.toJson().toString()}');
     response!.when(success: (response) {
       final responseMsg = Message(text: response, isUserText: false);
       List<Message> messages = List.from(state.messages)..add(responseMsg);
 
       state = state.copyWith(messages: messages);
     }, error: (errorMessage) {
+          debugPrint('Api response error  ${errorMessage}');
+
       state = state.copyWith(errorMessage: errorMessage);
     });
     state = state.copyWith(loading: false);

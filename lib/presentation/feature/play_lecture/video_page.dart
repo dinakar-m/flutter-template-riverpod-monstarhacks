@@ -38,7 +38,9 @@ class _PlayLecturePageState extends State<PlayLecturePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.check),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           )
         ],
       ),
