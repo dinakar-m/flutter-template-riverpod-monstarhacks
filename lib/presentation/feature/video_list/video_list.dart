@@ -194,17 +194,29 @@ class _VideoListState extends State<VideoList> {
     return ListView.builder(
       itemCount: videos.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(basename(videos[index].path)),
-          onTap: () {
-            final file = videos[index].path;
-            debugPrint('File......$file');
-            final route = MaterialPageRoute(
-              fullscreenDialog: true,
-              builder: (_) => PlayLecturePage(filePath: file),
-            );
-            Navigator.push(context, route);
-          },
+        return Card(
+          child: ListTile(
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(basename(videos[index].path)),
+                Text('Play',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ))
+              ],
+            ),
+            onTap: () {
+              final file = videos[index].path;
+              debugPrint('File......$file');
+              final route = MaterialPageRoute(
+                fullscreenDialog: true,
+                builder: (_) => PlayLecturePage(filePath: file),
+              );
+              Navigator.push(context, route);
+            },
+          ),
         );
       },
     );

@@ -52,7 +52,7 @@ class AppColors {
   final Color background;
 
   static const light = AppColors(
-    mainText: Color(0xFF263238),
+    mainText: Color(0xFF55585D),
     subTextDark: Color(0xFF688690),
     subTextLight: Color(0xFFB5C3C9),
     border: Color(0xFFA7C0CC),
@@ -66,7 +66,7 @@ class AppColors {
     background: Color(0xFFf1e79e),
   );
   static const dark = AppColors(
-    mainText: Color(0xFFF1F5F1),
+    mainText: Color(0xFF55585D),
     subTextDark: Color(0xFF688690),
     subTextLight: Color(0xFFB5C3C9),
     border: Color(0xFFA7C0CC),

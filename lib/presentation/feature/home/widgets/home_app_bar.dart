@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../../constants/resources/colors.dart';
 import '../../../../constants/routes.dart';
 import '../../../common/user_manager.dart';
 import '../../../common_widgets/space_box.dart';
@@ -17,7 +18,7 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AppBar(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: context.colors.background,
       toolbarHeight: kToolbarHeight,
       elevation: 0,
       leadingWidth: leadingWidth,
@@ -42,7 +43,8 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return Text(AppLocalizations.of(context)!.home_appname);
+    return Text(AppLocalizations.of(context)!.home_appname,
+        style: TextStyle(fontSize: 24, color: context.colors.mainText));
   }
 
   List<Widget>? buildActions(BuildContext context) {
