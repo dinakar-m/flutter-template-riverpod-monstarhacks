@@ -6,10 +6,8 @@ import 'package:flutter_template_riverpod/presentation/feature/chat/chat_page_vi
 import 'package:flutter_template_riverpod/presentation/feature/chat/widgets/message_bubble.dart';
 import 'package:flutter_template_riverpod/presentation/feature/chat/widgets/message_composer.dart';
 
-
 import '../../../data/repository/chat_repository/chat_repository.dart';
 import 'chat_page_state.dart';
-
 
 final chatProvider =
     StateNotifierProvider.autoDispose<ChatPageViewModel, ChatPageState>(
@@ -38,6 +36,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            const Text('Emergency +98765643xx ashacare@gmail.com'),
             Container(),
             Expanded(
               child: ListView(
