@@ -163,7 +163,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
       itemBuilder: (BuildContext context, int index) {
         return Card(
           color: Colors.primaries[index % 10],
-          child: _buildRemoveSingleView(index),
+          child: _buildRemoveSingleView(_remoteUidList[index]),
         );
       },
     );
