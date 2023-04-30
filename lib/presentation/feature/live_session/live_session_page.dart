@@ -11,8 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 const appId = "cadfae3db9754e12b9e826945e665f9d";
+// Token expires on May 1, 2023 3:41 AM UTC
 const token =
-    "007eJxTYJBW46zpOTLr90HRY82Tt2g8ktivramR9/jLC1fHmZ9enL+iwJCcmJKWmGqckmRpbmqSamiUZJlqYWRmaWKaamZmmmaZ8qzYO6UhkJHh0b8prIwMEAjiCzEkFmck6uZklqXGlxQlZuZl5qUzMAAAA0IoIQ==";
+    "007eJxTYFgjqHVxgqVTx4++EpGDCtIvrJYcWBX07PrWm1Wuy2JnLsxSYEhOTElLTDVOSbI0NzVJNTRKsky1MDKzNDFNNTMzTbNMiXrsm9IQyMhQWPqPhZEBAkF8IYbE4oxE3ZzMstT4kqLEzLzMvHQGBgC1OSbH";
 const channel = "asha-live_training";
 
 class LiveSessionPage extends ConsumerStatefulWidget {
@@ -47,10 +48,12 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
 
     //create the engine
     _engine = createAgoraRtcEngine();
-    await _engine.initialize(const RtcEngineContext(
-      appId: appId,
-      channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
-    ));
+    await _engine.initialize(
+      const RtcEngineContext(
+        appId: appId,
+        channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+      ),
+    );
 
     _engine.registerEventHandler(
       RtcEngineEventHandler(
@@ -76,7 +79,8 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
         },
         onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
           debugPrint(
-              'LiveSessionPage [onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+            'LiveSessionPage [onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token',
+          );
         },
       ),
     );
