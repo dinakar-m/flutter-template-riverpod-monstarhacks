@@ -45,7 +45,7 @@ class HomeViewState extends ConsumerState<RecordLecturePage> {
       final file = await _cameraController.stopVideoRecording();
       List<int> bytes = await file.readAsBytes();
       DateTime _now = DateTime.now();
-      final f = '{${_now.hour}}:${_now.minute}:${_now.second}.${_now.millisecond}';
+      final f = '${_now.year}/${_now.month}/${_now.day} ${_now.hour}:${_now.minute}:${_now.second}.${_now.millisecond}';
       final fileName = '$f.mp4';
       await saveFileToInternalStorage(fileName, bytes);
       setState(() => _isRecording = false);
