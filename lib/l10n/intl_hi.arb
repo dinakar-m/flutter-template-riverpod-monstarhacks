@@ -22,5 +22,51 @@
   "login_button": "लॉग इन",
   "@login_button": {
     "description": ""
+  },
+
+  "app_bar_logout": "लॉग आउट",
+  "@app_bar_logout": {
+    "description": ""
+  }
+,
+  "video_list_page_title": "वीडियो सूची",
+  "@video_list_page_title": {
+    "description": ""
+  },
+  "video_list_page_synch": "सिंक",
+  "@video_list_page_synch": {
+    "description": ""
+  },
+  "video_chat_page_title": "मुझसे कुछ भी पूछें",
+  "@video_chat_page_title": {
+    "description": ""
+  },
+  "video_chat_page_emergency": "आपातकाल",
+  "@video_chat_page_emergency": {
+    "description": ""
+  },
+  "video_chat_page_type_message": "प्रश्न टाइप करें",
+  "@video_chat_page_type_message": {
+    "description": ""
+  },
+  "live_session_page_title": "लाइव सत्र",
+  "@live_session_page_title": {
+    "description": ""
+  },
+  "live_session_page_recording": "रिकॉर्डिंग",
+  "@live_session_page_recording": {
+    "description": ""
+  },
+  "live_session_page_note_recording": "रिकॉर्डिंग नहीं",
+  "@live_session_page_note_recording": {
+    "description": ""
+  },
+  "live_session_page_note_participants": "प्रतिभागियों",
+  "@live_session_page_note_participants": {
+    "description": ""
+  },
+  "live_session_page_note_participants_join_message": "कृपया छात्रों के शामिल होने की प्रतीक्षा करें...",
+  "@live_session_page_note_participants_join_message": {
+    "description": ""
   }
 }

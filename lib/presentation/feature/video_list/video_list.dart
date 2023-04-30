@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class VideoSection {
   VideoSection({required this.title, required this.thumbnails});
@@ -218,12 +219,12 @@ class _VideoListState extends State<VideoList> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Lecture List'),
+         Text(AppLocalizations.of(context)!.video_list_page_title),
         TextButton(
           onPressed: () {
             debugPrint('Sync......');
           },
-          child: const Text('Sync'),
+          child:  Text(AppLocalizations.of(context)!.video_list_page_synch),
         ),
       ],
     );

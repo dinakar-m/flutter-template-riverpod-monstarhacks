@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../constants/routes.dart';
 import '../../../common/user_manager.dart';
@@ -41,7 +42,7 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
   }
 
   Widget buildTitle(BuildContext context) {
-    return const Text('Asha Health Explorer');
+    return Text(AppLocalizations.of(context)!.home_appname);
   }
 
   List<Widget>? buildActions(BuildContext context) {
@@ -54,8 +55,8 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
             },
           ),
         },
-        child: const Text(
-          'Logout',
+        child: Text(
+          AppLocalizations.of(context)!.app_bar_logout,
           style: TextStyle(fontSize: 18, color: Colors.white),
         ),
       ),

@@ -1,7 +1,7 @@
-import 'package:camera/camera.dart';
+pimport 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../play_lecture/video_page.dart';
 
 import 'dart:async';
@@ -103,12 +103,12 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Live Session'),
+         Text(AppLocalizations.of(context)!.live_session_page_title),
         TextButton(
           onPressed: () {
             debugPrint('Sync......');
           },
-          child: Text(needRecording ? 'Recording' : 'Not Recording'),
+          child: Text(needRecording ? AppLocalizations.of(context)!.live_session_page_recording : AppLocalizations.of(context)!.live_session_page_note_recording),
         ),
       ],
     );
@@ -124,9 +124,9 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
       body: Column(
         children: [
           _buildLocalView(),
-          const Text(
-            'Participants',
-            style: TextStyle(fontSize: 15),
+           Text(
+             AppLocalizations.of(context)!.live_session_page_note_participants,
+            style: const TextStyle(fontSize: 15),
           ),
           Expanded(child: _remoteVideo()),
         ],
@@ -154,8 +154,8 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
   // Display remote user's video
   Widget _remoteVideo() {
     if (_remoteUidList.isEmpty) {
-      return const Text(
-        'Please wait for remote user to join',
+      return  Text(
+        AppLocalizations.of(context)!.live_session_page_note_participants_join_message,
         textAlign: TextAlign.center,
       );
     }

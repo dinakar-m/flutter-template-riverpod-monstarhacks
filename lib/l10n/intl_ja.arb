@@ -22,5 +22,50 @@
   "login_button": "ログイン",
   "@login_button": {
     "description": ""
+  },
+  "app_bar_logout": "ログアウト",
+  "@app_bar_logout": {
+    "description": ""
+  }
+,
+  "video_list_page_title": "動画一覧",
+  "@video_list_page_title": {
+    "description": ""
+  },
+  "video_list_page_synch": "同期",
+  "@video_list_page_synch": {
+    "description": ""
+  },
+  "video_chat_page_title": "なんでも聞いて",
+  "@video_chat_page_title": {
+    "description": ""
+  },
+  "video_chat_page_emergency": "緊急",
+  "@video_chat_page_emergency": {
+    "description": ""
+  },
+  "video_chat_page_type_message": "質問を入力",
+  "@video_chat_page_type_message": {
+    "description": ""
+  },
+  "live_session_page_title": "ライブセッション",
+  "@live_session_page_title": {
+    "description": ""
+  },
+  "live_session_page_recording": "録音",
+  "@live_session_page_recording": {
+    "description": ""
+  },
+  "live_session_page_note_recording": "記録しない",
+  "@live_session_page_note_recording": {
+    "description": ""
+  },
+  "live_session_page_note_participants": "参加者",
+  "@live_session_page_note_participants": {
+    "description": ""
+  },
+  "live_session_page_note_participants_join_message": "学生の参加をお待ちください...",
+  "@live_session_page_note_participants_join_message": {
+    "description": ""
   }
 }

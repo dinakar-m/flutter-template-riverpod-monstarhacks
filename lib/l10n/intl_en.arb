@@ -23,5 +23,50 @@
   "login_button": "Log In",
   "@login_button": {
     "description": ""
+  },
+  "app_bar_logout": "Logout",
+  "@app_bar_logout": {
+    "description": ""
+  }
+,
+  "video_list_page_title": "Video List",
+  "@video_list_page_title": {
+    "description": ""
+  },
+  "video_list_page_synch": "Synch",
+  "@video_list_page_synch": {
+    "description": ""
+  },
+  "video_chat_page_title": "Ask me anything",
+  "@video_chat_page_title": {
+    "description": ""
+  },
+  "video_chat_page_emergency": "Emergency",
+  "@video_chat_page_emergency": {
+    "description": ""
+  },
+  "video_chat_page_type_message": "Type Question",
+  "@video_chat_page_type_message": {
+    "description": ""
+  },
+  "live_session_page_title": "Live Session",
+  "@live_session_page_title": {
+    "description": ""
+  },
+  "live_session_page_recording": "Recording",
+  "@live_session_page_recording": {
+    "description": ""
+  },
+  "live_session_page_note_recording": "Not Recording",
+  "@live_session_page_note_recording": {
+    "description": ""
+  },
+  "live_session_page_note_participants": "Participants",
+  "@live_session_page_note_participants": {
+    "description": ""
+  },
+  "live_session_page_note_participants_join_message": "Please wait for students to join...",
+  "@live_session_page_note_participants_join_message": {
+    "description": ""
   }
 }

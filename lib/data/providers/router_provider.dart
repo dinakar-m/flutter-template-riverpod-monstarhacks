@@ -3,7 +3,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../constants/routes.dart';
 import '../../presentation/common/user_manager.dart';
-import '../../presentation/feature/detail/detail_page.dart';
 import '../../presentation/feature/home/home_page.dart';
 import '../../presentation/feature/login/login_page.dart';
 
@@ -37,15 +36,7 @@ GoRouter goRouter(ref) => GoRouter(
               },
               path: RouteNames.homeScreen,
             ),
-            GoRoute(
-              name: RouteNames.animeDetail,
-              path: RoutePaths.animeDetail,
-              builder: (context, state) {
-                return DetailPage(
-                  id: int.parse(state.params[RouteParams.animeDetailId]!),
-                );
-              },
-            ),
+           
           ],
         ),
       ],

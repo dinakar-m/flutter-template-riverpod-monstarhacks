@@ -1,5 +1,6 @@
 // widgets/message_composer.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // class MessageComposer extends StatelessWidget {
 //   MessageComposer({
@@ -84,7 +85,7 @@ class _MessageInputState extends State<MessageInput> {
             child: TextField(
               controller: _textController,
               decoration: InputDecoration.collapsed(
-                hintText: 'Type a message',
+                hintText: AppLocalizations.of(context)!.video_chat_page_type_message,
               ),
               onChanged: (String text) {
                 setState(() {
