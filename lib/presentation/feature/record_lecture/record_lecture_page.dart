@@ -45,8 +45,11 @@ class HomeViewState extends ConsumerState<RecordLecturePage> {
       final file = await _cameraController.stopVideoRecording();
       List<int> bytes = await file.readAsBytes();
       DateTime _now = DateTime.now();
-      final f = '${_now.year}/${_now.month}/${_now.day} ${_now.hour}:${_now.minute}:${_now.second}.${_now.millisecond}';
+      final f =
+          'Date${_now.day}:${_now.month}:${_now.year}Time${_now.hour}:${_now.minute}:${_now.second}.${_now.millisecond}';
+      // ${_now.year}/${_now.month}/${_now.day}$
       final fileName = '$f.mp4';
+      debugPrint('Save to this file $fileName');
       await saveFileToInternalStorage(fileName, bytes);
       setState(() => _isRecording = false);
       final route = MaterialPageRoute(
