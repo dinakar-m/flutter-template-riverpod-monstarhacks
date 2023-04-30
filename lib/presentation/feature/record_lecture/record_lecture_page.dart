@@ -44,7 +44,10 @@ class HomeViewState extends ConsumerState<RecordLecturePage> {
     if (_isRecording) {
       final file = await _cameraController.stopVideoRecording();
       List<int> bytes = await file.readAsBytes();
-      await saveFileToInternalStorage('video.mp4', bytes);
+      DateTime _now = DateTime.now();
+      final f = '{${_now.hour}}:${_now.minute}:${_now.second}.${_now.millisecond}';
+      final fileName = '$f.mp4';
+      await saveFileToInternalStorage(fileName, bytes);
       setState(() => _isRecording = false);
       final route = MaterialPageRoute(
         fullscreenDialog: true,
