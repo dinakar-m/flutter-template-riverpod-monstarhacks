@@ -124,6 +124,10 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
       body: Column(
         children: [
           _buildLocalView(),
+          const Text(
+            'Participants',
+            style: TextStyle(fontSize: 15),
+          ),
           Expanded(child: _remoteVideo()),
         ],
       ),
