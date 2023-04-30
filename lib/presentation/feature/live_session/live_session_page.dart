@@ -12,7 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 const appId = "cadfae3db9754e12b9e826945e665f9d";
 // Token expires on May 1, 2023 3:41 AM UTC
-const token =
+const agoraToken =
     "007eJxTYFgjqHVxgqVTx4++EpGDCtIvrJYcWBX07PrWm1Wuy2JnLsxSYEhOTElLTDVOSbI0NzVJNTRKsky1MDKzNDFNNTMzTbNMiXrsm9IQyMhQWPqPhZEBAkF8IYbE4oxE3ZzMstT4kqLEzLzMvHQGBgC1OSbH";
 const channel = "asha-live_training";
 
@@ -87,10 +87,11 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
 
     await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
     await _engine.enableVideo();
+    await _engine.enableAudio();
     await _engine.startPreview();
 
     await _engine.joinChannel(
-      token: token,
+      token: agoraToken,
       channelId: channel,
       uid: 0,
       options: const ChannelMediaOptions(),
@@ -98,6 +99,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
   }
 
   Widget _buildAppBar() {
+    final needRecording = _remoteUidList.isNotEmpty;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -106,7 +108,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
           onPressed: () {
             debugPrint('Sync......');
           },
-          child: const Text('Recording...'),
+          child: Text(needRecording ? 'Recording' : 'Not Recording'),
         ),
       ],
     );
