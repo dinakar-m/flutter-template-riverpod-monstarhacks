@@ -44,7 +44,7 @@ class HomeViewState extends ConsumerState<RecordLecturePage> {
     if (_isRecording) {
       final file = await _cameraController.stopVideoRecording();
       List<int> bytes = await file.readAsBytes();
-      await saveFileToInternalStorage('video', bytes);
+      await saveFileToInternalStorage('video.mp4', bytes);
       setState(() => _isRecording = false);
       final route = MaterialPageRoute(
         fullscreenDialog: true,
@@ -57,14 +57,17 @@ class HomeViewState extends ConsumerState<RecordLecturePage> {
       setState(() => _isRecording = true);
     }
   }
-  Future<File> saveFileToInternalStorage(String fileName, List<int> bytes) async {
+
+  Future<File> saveFileToInternalStorage(
+      String fileName, List<int> bytes) async {
     // get the directory for the app's documents
-    final  directory = await getApplicationDocumentsDirectory();
+    final directory = await getApplicationDocumentsDirectory();
     // create the file path
     final filePath = '${directory.path}/$fileName';
     // write the file
     final file = File(filePath);
     await file.writeAsBytes(bytes);
+    debugPrint('Wrote on file... $fileName  ${file.path}');
     return file;
   }
 

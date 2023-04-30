@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_file_manager/flutter_file_manager.dart';
+import 'package:path_provider/path_provider.dart';
 
 class VideoSection {
   VideoSection({required this.title, required this.thumbnails});
@@ -25,6 +30,31 @@ class VideoList extends StatefulWidget {
 }
 
 class _VideoListState extends State<VideoList> {
+  List<File> videos = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _getVideos();
+  }
+
+  void _getVideos() async {
+    // Get the application directory
+    final appDir = await getApplicationDocumentsDirectory();
+
+    // Use the flutter_file_manager package to list the video files in the directory
+    final files = await FileManager.listFiles(
+      appDir.path,
+      extensions: ['.mp4'],
+    );
+
+    // Convert the list of FileSystemEntity objects to a list of File objects
+    setState(() {
+      videos = files.map((f) => File(f.path)).toList();
+    });
+    debugPrint('Vide list files... $videos');
+  }
+
   final List<VideoSection> videoSections = [
     VideoSection(
       title: 'Section 1',
@@ -219,12 +249,12 @@ class _VideoListState extends State<VideoList> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-         Text(AppLocalizations.of(context)!.video_list_page_title),
+        Text(AppLocalizations.of(context)!.video_list_page_title),
         TextButton(
           onPressed: () {
             debugPrint('Sync......');
           },
-          child:  Text(AppLocalizations.of(context)!.video_list_page_synch),
+          child: Text(AppLocalizations.of(context)!.video_list_page_synch),
         ),
       ],
     );
