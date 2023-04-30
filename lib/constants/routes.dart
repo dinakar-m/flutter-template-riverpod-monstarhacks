@@ -12,6 +12,8 @@ class RouteNames {
   static const animeDetail = 'anime_detail';
   static const homeScreen = 'home';
   static const loginScreen = 'login';
+    static const liveSessionScreen = 'live_session';
+
 }
 
 class RouteParams {
