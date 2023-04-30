@@ -19,4 +19,9 @@
   "@home_chat": {
     "description": ""
   }
+  ,
+  "login_button": "Log In",
+  "@login_button": {
+    "description": ""
+  }
 }

@@ -18,5 +18,9 @@
   "home_chat": "ヘルプ/チャット",
   "@home_chat": {
     "description": ""
+  },
+  "login_button": "ログイン",
+  "@login_button": {
+    "description": ""
   }
 }

@@ -18,5 +18,9 @@
   "home_chat": "मद्दत / च्याट",
   "@home_chat": {
     "description": ""
+  },
+  "login_button": "लग - इन",
+  "@login_button": {
+    "description": ""
   }
 }
