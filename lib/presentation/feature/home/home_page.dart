@@ -94,20 +94,20 @@ class _HomePageState extends BasePageState<HomePage>
           items: [
             BottomNavigationBarItem(
               label: AppLocalizations.of(context)!.home_tab_video_list,
-              icon: const Icon(Icons.newspaper),
+              icon: const Icon(Icons.video_collection_outlined),
             ),
             BottomNavigationBarItem(
               label: AppLocalizations.of(context)!.home_tab_profile,
-              icon: const Icon(Icons.list),
+              icon: const Icon(Icons.chat_outlined),
             ),
             BottomNavigationBarItem(
               label: AppLocalizations.of(context)!.home_tab_live_session,
-              icon: const Icon(Icons.person),
+              icon: const Icon(Icons.video_call),
             ),
             if (isLecturerLoggedIn)
               BottomNavigationBarItem(
                 label: AppLocalizations.of(context)!.home_tab_top_anime,
-                icon: const Icon(Icons.newspaper),
+                icon: const Icon(Icons.video_camera_back_rounded),
               ),
           ],
         ),
