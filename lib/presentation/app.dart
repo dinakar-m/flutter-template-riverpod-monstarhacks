@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../constants/resources/themes.dart';
 import '../data/providers/router_provider.dart';
@@ -43,7 +44,7 @@ class _AppState extends ConsumerState<App> {
           theme: Themes.appTheme(Brightness.light),
           darkTheme: Themes.appTheme(Brightness.dark),
           themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-          title: 'Asha',
+          title: "Asha Rakashk",
           routerConfig: ref.read(goRouterProvider),
         );
       },

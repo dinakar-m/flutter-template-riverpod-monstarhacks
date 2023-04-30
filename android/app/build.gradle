@@ -62,13 +62,13 @@ android {
         development {
             dimension "default"
             applicationId "com.monstarlab.oss.flutter.template.flutter_template_riverpod.dev"
-            resValue "string", "app_name", "[DEV] Flutter Template Riverpod"
+            resValue "string", "app_name", "[DEV] Asha Rakshak"
         }
 
         production {
             dimension "default"
             applicationId "com.monstarlab.oss.flutter.template.flutter_template_riverpod"
-            resValue "string", "app_name", "Flutter Template Riverpod"
+            resValue "string", "app_name", "Asha Rakshak"
         }
     }
 
