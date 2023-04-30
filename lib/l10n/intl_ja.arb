@@ -1,4 +1,8 @@
 {
+  "home_appname": "Asha Rakshak",
+  "@home_appname": {
+    "description": ""
+  },
   "home_tab_top_anime": "講義を録音する",
   "@home_tab_top_anime": {
     "description": ""

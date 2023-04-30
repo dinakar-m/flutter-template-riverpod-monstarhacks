@@ -13,6 +13,7 @@ class AppColors {
     required this.mediumBlack,
     required this.lightBlue,
     required this.mediumBlue,
+    required this.background,
   });
 
   /// Main Text
@@ -48,6 +49,8 @@ class AppColors {
   /// Medium Blue
   final Color mediumBlue;
 
+  final Color background;
+
   static const light = AppColors(
     mainText: Color(0xFF263238),
     subTextDark: Color(0xFF688690),
@@ -60,6 +63,7 @@ class AppColors {
     mediumBlack: Color(0x73000000),
     lightBlue: Color(0x03A9F4FF),
     mediumBlue: Color(0xFF1976D2),
+    background: Color(0xFFf1e79e),
   );
   static const dark = AppColors(
     mainText: Color(0xFFF1F5F1),
@@ -73,6 +77,7 @@ class AppColors {
     mediumBlack: Color(0x73000000),
     lightBlue: Color(0x03A9F4FF),
     mediumBlue: Color(0xFF1976D2),
+    background: Color(0xFFf1e79e),
   );
 }
 
