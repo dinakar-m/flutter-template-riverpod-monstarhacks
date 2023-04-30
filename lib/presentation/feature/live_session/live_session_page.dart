@@ -12,7 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 const appId = "cadfae3db9754e12b9e826945e665f9d";
 // Token expires on May 1, 2023 3:41 AM UTC
-const token =
+const agoraToken =
     "007eJxTYFgjqHVxgqVTx4++EpGDCtIvrJYcWBX07PrWm1Wuy2JnLsxSYEhOTElLTDVOSbI0NzVJNTRKsky1MDKzNDFNNTMzTbNMiXrsm9IQyMhQWPqPhZEBAkF8IYbE4oxE3ZzMstT4kqLEzLzMvHQGBgC1OSbH";
 const channel = "asha-live_training";
 
@@ -24,7 +24,7 @@ class LiveSessionPage extends ConsumerStatefulWidget {
 }
 
 class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
-  int? _remoteUid;
+  List<int> _remoteUidList = [];
   bool _localUserJoined = false;
   late RtcEngine _engine;
 
@@ -67,14 +67,14 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
         onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
           debugPrint("LiveSessionPage remote user $remoteUid joined");
           setState(() {
-            _remoteUid = remoteUid;
+            _remoteUidList.add(remoteUid);
           });
         },
         onUserOffline: (RtcConnection connection, int remoteUid,
             UserOfflineReasonType reason) {
           debugPrint("LiveSessionPage remote user $remoteUid left channel");
           setState(() {
-            _remoteUid = null;
+            _remoteUidList.remove(remoteUid);
           });
         },
         onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
@@ -87,10 +87,11 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
 
     await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
     await _engine.enableVideo();
+    await _engine.enableAudio();
     await _engine.startPreview();
 
     await _engine.joinChannel(
-      token: token,
+      token: agoraToken,
       channelId: channel,
       uid: 0,
       options: const ChannelMediaOptions(),
@@ -98,6 +99,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
   }
 
   Widget _buildAppBar() {
+    final needRecording = _remoteUidList.isNotEmpty;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -106,7 +108,7 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
           onPressed: () {
             debugPrint('Sync......');
           },
-          child: const Text('Recording...'),
+          child: Text(needRecording ? 'Recording' : 'Not Recording'),
         ),
       ],
     );
@@ -119,48 +121,69 @@ class LiveSessionPageState extends ConsumerState<LiveSessionPage> {
       appBar: AppBar(
         title: _buildAppBar(),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Center(
-            child: _remoteVideo(),
+          _buildLocalView(),
+          const Text(
+            'Participants',
+            style: TextStyle(fontSize: 15),
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: SizedBox(
-              width: 100,
-              height: 150,
-              child: Center(
-                child: _localUserJoined
-                    ? AgoraVideoView(
-                        controller: VideoViewController(
-                          rtcEngine: _engine,
-                          canvas: const VideoCanvas(uid: 0),
-                        ),
-                      )
-                    : const CircularProgressIndicator(),
-              ),
-            ),
-          ),
+          Expanded(child: _remoteVideo()),
         ],
+      ),
+    );
+  }
+
+  Widget _buildLocalView() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 2,
+      child: AspectRatio(
+        aspectRatio: 3,
+        child: _localUserJoined
+            ? AgoraVideoView(
+                controller: VideoViewController(
+                  rtcEngine: _engine,
+                  canvas: const VideoCanvas(uid: 0),
+                ),
+              )
+            : const CircularProgressIndicator(),
       ),
     );
   }
 
   // Display remote user's video
   Widget _remoteVideo() {
-    if (_remoteUid != null) {
-      return AgoraVideoView(
-        controller: VideoViewController.remote(
-          rtcEngine: _engine,
-          canvas: VideoCanvas(uid: _remoteUid),
-          connection: const RtcConnection(channelId: channel),
-        ),
-      );
-    } else {
+    if (_remoteUidList.isEmpty) {
       return const Text(
         'Please wait for remote user to join',
         textAlign: TextAlign.center,
       );
     }
+    return GridView.builder(
+      shrinkWrap: true,
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemCount: _remoteUidList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Card(
+          color: Colors.primaries[index % 10],
+          child: _buildRemoveSingleView(_remoteUidList[index]),
+        );
+      },
+    );
+  }
+
+  Widget _buildRemoveSingleView(int _remoteUid) {
+    if (_remoteUid == 0) {
+      return Container();
+    }
+    debugPrint('_buildRemoveSingleView userid $_remoteUid');
+    return AgoraVideoView(
+      controller: VideoViewController.remote(
+        rtcEngine: _engine,
+        canvas: VideoCanvas(uid: _remoteUid),
+        connection: const RtcConnection(channelId: channel),
+      ),
+    );
   }
 }
