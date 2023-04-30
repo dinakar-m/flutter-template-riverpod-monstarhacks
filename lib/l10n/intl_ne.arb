@@ -3,19 +3,19 @@
   "@home_appname": {
     "description": ""
   },
-  "home_record_lecture": "Record Lecture",
+  "home_record_lecture": "रेकर्ड व्याख्यान",
   "@home_record_lecture": {
     "description": ""
   },
-  "home_tab_live_session": "Live Session",
+  "home_tab_live_session": "प्रत्यक्ष सत्र",
   "@home_tab_live_session": {
     "description": ""
   },
-  "home_tab_video_list": "Video List",
+  "home_tab_video_list": "भिडियो सूची",
   "@home_tab_video_list": {
     "description": ""
   },
-  "home_chat": "ヘルプ/チャット",
+  "home_chat": "मद्दत / च्याट",
   "@home_chat": {
     "description": ""
   }

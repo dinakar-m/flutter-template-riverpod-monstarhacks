@@ -97,7 +97,7 @@ class _HomePageState extends BasePageState<HomePage>
               icon: const Icon(Icons.video_collection_outlined),
             ),
             BottomNavigationBarItem(
-              label: AppLocalizations.of(context)!.home_tab_profile,
+              label: AppLocalizations.of(context)!.home_chat,
               icon: const Icon(Icons.chat_outlined),
             ),
             BottomNavigationBarItem(
@@ -106,7 +106,7 @@ class _HomePageState extends BasePageState<HomePage>
             ),
             if (isLecturerLoggedIn)
               BottomNavigationBarItem(
-                label: AppLocalizations.of(context)!.home_tab_top_anime,
+                label: AppLocalizations.of(context)!.home_record_lecture,
                 icon: const Icon(Icons.video_camera_back_rounded),
               ),
           ],
