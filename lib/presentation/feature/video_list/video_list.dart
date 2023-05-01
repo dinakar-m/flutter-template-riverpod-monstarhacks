@@ -3,13 +3,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:io';
 import 'dart:io';
 import 'package:path/path.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_file_manager/flutter_file_manager.dart';
+
 import 'package:flutter_template_riverpod/presentation/feature/play_lecture/video_page.dart';
 import 'package:path_provider/path_provider.dart';
 
 class VideoSection {
   VideoSection({required this.title, required this.thumbnails});
+
   String title;
   List<VideoThumbnail> thumbnails;
 }
@@ -19,6 +20,7 @@ class VideoThumbnail {
       {required this.title,
       required this.thumbnailUrl,
       required this.videoUrl});
+
   String title;
   String thumbnailUrl;
   String videoUrl;
@@ -195,27 +197,40 @@ class _VideoListState extends State<VideoList> {
       itemCount: videos.length,
       itemBuilder: (context, index) {
         return Card(
-          child: ListTile(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(basename(videos[index].path)),
-                Text('Play',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ))
-              ],
+          child: Container(
+            height: 260,
+            width: double.infinity,
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      width: double.infinity,
+                      height: 210,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/play_button.png'),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      final file = videos[index].path;
+                      debugPrint('File......$file');
+                      final route = MaterialPageRoute(
+                        fullscreenDialog: true,
+                        builder: (_) => PlayLecturePage(filePath: file),
+                      );
+                      Navigator.push(context, route);
+                    },
+                  ),
+                  Center(child: Text(basename(videos[index].path))),
+                ],
+              ),
             ),
-            onTap: () {
-              final file = videos[index].path;
-              debugPrint('File......$file');
-              final route = MaterialPageRoute(
-                fullscreenDialog: true,
-                builder: (_) => PlayLecturePage(filePath: file),
-              );
-              Navigator.push(context, route);
-            },
           ),
         );
       },
@@ -237,7 +252,7 @@ class _VideoListState extends State<VideoList> {
               ),
             ),
             Container(
-              height: 240,
+              height: 150,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: videoSections[index].thumbnails.length,
