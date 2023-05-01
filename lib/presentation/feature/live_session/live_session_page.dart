@@ -13,7 +13,7 @@ import 'package:permission_handler/permission_handler.dart';
 const appId = "cadfae3db9754e12b9e826945e665f9d";
 // Token expires on May 1, 2023 3:41 AM UTC
 const agoraToken =
-    "007eJxTYFgjqHVxgqVTx4++EpGDCtIvrJYcWBX07PrWm1Wuy2JnLsxSYEhOTElLTDVOSbI0NzVJNTRKsky1MDKzNDFNNTMzTbNMiXrsm9IQyMhQWPqPhZEBAkF8IYbE4oxE3ZzMstT4kqLEzLzMvHQGBgC1OSbH";
+    "007eJxTYCgK3ur2aoOHdKAH58U72R21vJvDjsyZO4vV/RDDt//qn0MVGJITU9ISU41TkizNTU1SDY2SLFMtjMwsTUxTzcxM0yxTim38UxoCGRlqvi5mYWSAQBBfiCGxOCNRNyezLDW+pCgxMy8zL52BAQBQrSV+";
 const channel = "asha-live_training";
 
 class LiveSessionPage extends ConsumerStatefulWidget {

@@ -9,7 +9,7 @@ class ChatRepository {
     final headers = {
       'Content-Type': 'application/json',
       'Authorization':
-          'Bearer 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',
+          'Bearer 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',
     };
     final data = {
       'prompt': question,
