@@ -51,6 +51,17 @@ class HomeAppBar extends ConsumerWidget implements PreferredSizeWidget {
     return <Widget>[
       TextButton(
         onPressed: () => {
+          context.pushNamed(
+            RouteNames.liveSessionScreen,
+          )
+        },
+        child: const Text(
+          'LiveSession',
+          style: TextStyle(fontSize: 14, color: Colors.white),
+        ),
+      ),
+      TextButton(
+        onPressed: () => {
           UserManager.logout().then(
             (value) => {
               doLogout(context),
